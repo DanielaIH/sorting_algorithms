@@ -4,13 +4,13 @@
  * bubble_sort - function that sorts using the Bubble sort algorithm
  *@array: the array of elements
  *@size: the size of the array
- * Return: Always 0
+ * Return: Nothing
  */
 void bubble_sort(int *array, size_t size)
 {
 	size_t cont = 0, tmp = 0, i = 0;
 
-	if (!array)
+	if (!array || !size)
 		return;
 	for (i = 0; i < size; i++)
 	{
