@@ -1,5 +1,11 @@
 #include "sort.h"
 
+/**
+ * swap_nodes - function that swap nodes in doubly linked list
+ *@current: point current of the doubly linked list
+ *@flag: is one if swap is in the head of the list
+ * Return: pointer to the current point
+ */
 listint_t *swap_nodes(listint_t *current, int *flag)
 {
 	listint_t *tmp = current->next;
@@ -12,25 +18,30 @@ listint_t *swap_nodes(listint_t *current, int *flag)
 	}
 	else if (current->prev == NULL)
 		*flag = 1;
-	
+
 	current->prev = tmp;
 	current->next = tmp->next;
 	tmp->next = current;
 	if (current->next != NULL)
 		current->next->prev = current;
-	
+
 	return (tmp);
 }
 
+/**
+ * insertion_sort_list - function that swaps nodes
+ *@list: pointer to list
+ * Return: Nothing
+ */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *current = *list;
+	listint_t *current = NULL;
 	int flag;
 
-	if (!current)
-	{
+	if (!list || !*list)
 		return;
-	}
+
+	current = *list;
 	while (current->next)
 	{
 		flag = 0;
